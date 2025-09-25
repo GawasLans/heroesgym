@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestro Equipo - Team Heroes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-mode">
+    <header class="main-header">
+        <h1 class="main-title">Team Heroes</h1>
+        <button class="icon-button menu-toggle" id="mobile-menu-toggle">☰</button>
+        <nav class="main-nav" id="mobile-menu">
+            <ul class="main-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li class="has-submenu dropdown">
+                    <a href="#" class="dropdown-toggle">Equipo</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="equipo.html"><i class="fas fa-users"></i> Ver Equipo</a></li>
+                        <li><a href="equipo.html?action=add"><i class="fas fa-user-plus"></i> Crear Practicante</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <button id="mode-toggle" class="icon-button">☀️</button>
+            <img src="img/logo-heroes.png" alt="Logo Heroes" class="header-logo">
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="page-header-actions">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Buscar por nombre, DNI o ID...">
+                <button class="action-button primary" id="search-button">Buscar</button>
+            </div>
+            <div class="top-buttons">
+                <button id="show-add-form-button" class="action-button primary">Añadir Practicante</button>
+            </div>
+        </div>
+        
+        <!-- Formulario Añadir/Editar Practicante -->
+        <section id="add-practicante-section" class="form-section hidden-form">
+            <div class="form-header">
+                <h3 id="form-title">Añadir Practicante</h3>
+            </div>
+            <form id="practicante-form">
+                <input type="hidden" id="practicante-id">
+                <div class="photo-upload">
+                    <div class="photo-preview-container">
+                        <span class="initials" id="initials-preview"></span>
+                        <img id="photo-preview" class="photo-preview" src="#" alt="Vista previa de la foto">
+                    </div>
+                    <label for="foto-input" class="file-upload-label">Subir Foto</label>
+                    <input type="file" id="foto-input" accept="image/*" style="display: none;">
+                    <p class="file-types-info">Archivos .jpg, .png</p>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido">Apellido</label>
+                        <input type="text" id="apellido" name="apellido" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dni">DNI</label>
+                        <input type="text" id="dni" name="dni" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="genero">Género</label>
+                        <select id="genero" name="genero" required>
+                            <option value="">Seleccionar</option>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="fecha-nacimiento">Fecha de Nacimiento</label>
+                        <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pais">País</label>
+                        <input type="text" id="pais" name="pais" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="peso">Peso (kg)</label>
+                        <input type="number" id="peso" name="peso" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label for="altura">Altura (mts)</label>
+                        <input type="number" id="altura" name="altura" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label for="disciplina">Disciplina</label>
+                        <select id="disciplina" name="disciplina" required>
+                            <option value="">Seleccionar</option>
+                            <option value="itf">Taekwon-Do ITF</option>
+                            <option value="kombat">Kombat Taekwondo</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="grado">Grado</label>
+                        <select id="grado" name="grado" disabled required>
+                            <option value="">Seleccionar grado</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="licencia">N° Licencia</label>
+                        <input type="text" id="licencia" name="licencia">
+                    </div>
+                    <div class="form-group">
+                        <label for="fecha-caducidad">Caducidad Licencia</label>
+                        <input type="date" id="fecha-caducidad" name="fecha-caducidad">
+                    </div>
+                    <div class="form-group">
+                        <label>Rol:</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="rol" value="practicante" checked> Practicante</label>
+                            <label><input type="radio" name="rol" value="profesor"> Profesor</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="form-button back-button-form" id="hide-add-form-button">Cancelar</button>
+                    <button type="submit" class="form-button save-button" id="save-button">Guardar cambios</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Listas de Practicantes y Profesores -->
+        <section class="list-section" id="itf-section">
+            <div class="list-header">
+                <h2 class="list-title">
+                    <img src="img/itf-logo.png" alt="Logo ITF" class="discipline-icon">
+                    Taekwon-Do ITF
+                </h2>
+            </div>
+            <ul class="practicantes-list" id="lista-practicantes-itf"></ul>
+        </section>
+        
+        <section class="list-section" id="kombat-section">
+            <div class="list-header">
+                <h2 class="list-title">
+                    <img src="img/kombat-logo.png" alt="Logo Kombat" class="discipline-icon">
+                    Kombat Taekwondo
+                </h2>
+            </div>
+            <ul class="practicantes-list" id="lista-practicantes-kombat"></ul>
+        </section>
+
+        <section class="list-section">
+            <div class="list-header">
+                <h2 class="list-title">Profesores</h2>
+            </div>
+            <ul class="practicantes-list" id="lista-profesores"></ul>
+        </section>
+    </main>
+
+    <script type="module" src="app.js"></script>
+    <script src="https://kit.fontawesome.com/c167814b7e.js" crossorigin="anonymous"></script>
+    <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-analytics.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDY17ep_S0mHigcF98t3NX-J6NRzlp-PxM",
+    authDomain: "gymheroes-edf03.firebaseapp.com",
+    projectId: "gymheroes-edf03",
+    storageBucket: "gymheroes-edf03.firebasestorage.app",
+    messagingSenderId: "122229221912",
+    appId: "1:122229221912:web:1471587cbaf4685f90b16d",
+    measurementId: "G-8E8SK69SYT"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+<script type="module" src="app.js"></script>
+
+</body>
+</html>

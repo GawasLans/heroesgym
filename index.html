@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Heroes - Inicio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-mode">
+    <header class="main-header">
+        <h1 class="main-title">Team Heroes</h1>
+        <button class="icon-button menu-toggle" id="mobile-menu-toggle">☰</button>
+        <nav class="main-nav" id="mobile-menu">
+            <ul class="main-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li class="has-submenu dropdown">
+                    <a href="#" class="dropdown-toggle">Equipo</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="equipo.html"><i class="fas fa-users"></i> Ver Equipo</a></li>
+                        <li><a href="equipo.html?action=add"><i class="fas fa-user-plus"></i> Crear Practicante</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <button id="mode-toggle" class="icon-button">☀️</button>
+            <img src="img/logo-heroes.png" alt="Logo Heroes" class="header-logo">
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="counters">
+            <div class="counter-card">
+                <h2>Taekwon-Do ITF</h2>
+                <p id="itf-count">0</p>
+            </div>
+            <div class="counter-card">
+                <h2>Kombat Taekwondo</h2>
+                <p id="kombat-count">0</p>
+            </div>
+        </section>
+
+        <section class="welcome">
+            <h2>Bienvenidos a Team Heroes</h2>
+            <p>Explora nuestro equipo de practicantes y profesores, conoce sus disciplinas y grados.</p>
+            <a href="equipo.html" class="action-button primary">Ver Equipo</a>
+        </section>
+    </main>
+
+    <script type="module" src="app.js"></script>
+    <script src="https://kit.fontawesome.com/c167814b7e.js" crossorigin="anonymous"></script>
+    <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+  import { getFirestore } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
+  import { getStorage } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-storage.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDY17ep_S0mHigcF98t3NX-J6NRzlp-PxM",
+    authDomain: "gymheroes-edf03.firebaseapp.com",
+    projectId: "gymheroes-edf03",
+    storageBucket: "gymheroes-edf03.firebasestorage.app",
+    messagingSenderId: "122229221912",
+    appId: "1:122229221912:web:1471587cbaf4685f90b16d",
+    measurementId: "G-8E8SK69SYT"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const storage = getStorage(app);
+</script>
+
+<script type="module" src="app.js"></script>
+<script src="https://kit.fontawesome.com/c167814b7e.js" crossorigin="anonymous"></script>
+
+</body>
+</html>

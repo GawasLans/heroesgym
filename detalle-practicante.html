@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Practicante - Team Heroes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-mode">
+    <header class="main-header">
+        <h1 class="main-title">Team Heroes</h1>
+        <button class="icon-button menu-toggle" id="mobile-menu-toggle">☰</button>
+        <nav class="main-nav" id="mobile-menu">
+            <ul class="main-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li class="has-submenu dropdown">
+                    <a href="#" class="dropdown-toggle">Equipo</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="equipo.html"><i class="fas fa-users"></i> Ver Equipo</a></li>
+                        <li><a href="equipo.html?action=add"><i class="fas fa-user-plus"></i> Crear Practicante</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <button id="mode-toggle" class="icon-button">☀️</button>
+            <img src="img/logo-heroes.png" alt="Logo Heroes" class="header-logo">
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="card detail-card">
+            <div class="practicante-header">
+                <img src="" alt="Foto de practicante" class="detail-photo" id="detail-photo">
+                <h3 id="detail-nombre-completo"></h3>
+            </div>
+            
+            <div class="detail-info-grid">
+                <div class="detail-info">
+                    <h4>Datos Personales</h4>
+                    <p><strong>ID:</strong> <span id="detail-id"></span></p>
+                    <p><strong>DNI:</strong> <span id="detail-dni"></span></p>
+                    <p><strong>Género:</strong> <span id="detail-genero"></span></p>
+                    <p><strong>Fecha de Nacimiento:</strong> <span id="detail-fecha-nacimiento"></span></p>
+                    <p><strong>Email:</strong> <span id="detail-email"></span></p>
+                    <p><strong>País:</strong> <span id="detail-pais"></span></p>
+                    <p><strong>Peso:</strong> <span id="detail-peso"></span> kg</p>
+                    <p><strong>Altura:</strong> <span id="detail-altura"></span> mts</p>
+                </div>
+
+                <div class="detail-discipline-info">
+                    <h4>Disciplina y Grado</h4>
+                    <p><strong>Disciplina:</strong> <span id="detail-disciplina"></span></p>
+                    <p><strong>Grado:</strong> <span id="detail-grado"></span></p>
+                    <p><strong>N° Licencia:</strong> <span id="detail-licencia"></span></p>
+                    <p><strong>Caducidad Licencia:</strong> <span id="detail-fecha-caducidad"></span></p>
+                </div>
+            </div>
+            
+            <div class="form-actions">
+                <button type="button" class="form-button back-button-form" onclick="history.back()">Volver</button>
+                <button type="button" class="form-button save-button" id="edit-practicante-button">Editar</button>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="app.js"></script>
+    <script src="https://kit.fontawesome.com/c167814b7e.js" crossorigin="anonymous"></script>
+    <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+  import { getFirestore } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
+  import { getStorage } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-storage.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDY17ep_S0mHigcF98t3NX-J6NRzlp-PxM",
+    authDomain: "gymheroes-edf03.firebaseapp.com",
+    projectId: "gymheroes-edf03",
+    storageBucket: "gymheroes-edf03.firebasestorage.app",
+    messagingSenderId: "122229221912",
+    appId: "1:122229221912:web:1471587cbaf4685f90b16d",
+    measurementId: "G-8E8SK69SYT"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const storage = getStorage(app);
+</script>
+
+<script type="module" src="app.js"></script>
+<script src="https://kit.fontawesome.com/c167814b7e.js" crossorigin="anonymous"></script>
+
+</body>
+</html>
